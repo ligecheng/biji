@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+             <bean class="com.aop.MoccAop" id="MoccAop"></bean>
+<!--             <bean class="com.aop.AopConfig" id="AopConfig"></bean>-->
+    <aop:config>
+        <aop:aspect ref="MoccAop" id="aspectMocc">
+            <aop:pointcut expression="execution(* com.aop.AopConfig.*(..))" id="moocPiontcut"/>
+<!--           <aop:before method="before" pointcut-ref="moocPiontcut"/>-->
+<!--            <aop:after-returning method="afterRurning" pointcut-ref="moocPiontcut"/>-->
+<!--            <aop:after-throwing method="afterThorwing" pointcut-ref="moocPiontcut"/>-->
+<!--            <aop:after method="after" pointcut-ref="moocPiontcut"/>-->
+<!--            <aop:around method="around" pointcut-ref="moocPiontcut"/>-->
+<!--             			<aop:around method="aroundInit" pointcut="execution(* com.aop.AopConfig.init(String, int)-->
+<!--             							and args(name, time)"/>-->
+
+           <aop:declare-parents types-matching="com.aop.AopConfig" implement-interface="com.aop.Aopinterface" default-impl="com.aop.Aop"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
